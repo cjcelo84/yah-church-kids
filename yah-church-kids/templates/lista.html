@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Crianças Cadastradas</title>
+    <style>
+        body { font-family: Arial; background: #f0f0f0; padding: 20px; text-align: center; }
+        table { margin: auto; border-collapse: collapse; width: 80%; background: white; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        th, td { padding: 10px; border: 1px solid #ddd; }
+        th { background: #28a745; color: white; }
+        a { text-decoration: none; color: #28a745; margin-top: 20px; display: inline-block; }
+    </style>
+</head>
+<body>
+    <h1>Crianças Cadastradas</h1>
+    {% if cadastros %}
+    <table>
+        <tr>
+            <th>Nome</th>
+            <th>Idade</th>
+            <th>Atividade</th>
+        </tr>
+        {% for cadastro in cadastros %}
+        <tr>
+            <td>{{ cadastro[0] }}</td>
+            <td>{{ cadastro[1] }}</td>
+            <td>{{ cadastro[2] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+        <p>Nenhum cadastro encontrado.</p>
+    {% endif %}
+    <a href="/">Voltar ao cadastro</a>
+</body>
+</html>
